@@ -2,29 +2,15 @@
 <html>
 	<head>
 		<title>Bing Search</title>
-			<style>
-				body {
-					background-image: url("search.jpg");
-					background-repeat: no-repeat;
-					background-position: right top; 
-					}
-				h2 {
-					color:blue;
-					}
-				a {
-					font-style: bold;
-					font-size: 20px;
-					}
-				p {
-					white-space:pre-wrap; 
-					width:60ex;
-					font-size: 15px;
-					font-family: serif;
-					}
-			</style>
-		</title>
+		<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+		<link href="style.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
+		<div class='container'>
+			<a href="bingsrch.html"><img class="homeSearch" src="homeSearch.gif"></a>
+			<h2 id='secHeading' class='text-center'> Top 20 Search Results </h2>
+				<div class='row'>
+					<div class='col-xs-12'>
 		<?php
 		session_start();
 		 
@@ -48,24 +34,24 @@
 		$context = stream_context_create($data);
 		$response = file_get_contents($requestUri, 0, $context);
 		$response=json_decode($response);
-		echo "<pre>";
+		echo "	";
 
-		$i = 0;
-		$ResultsStop = array();
-		foreach($response->d->results as $value)
-		{
-	
-			$newResults[$i] = array($i+1,$value->Url,$value->Description);
-			$ResultsStop[$i] = array($i+1,$value->Url,$value->Description);
-			$i++;
-		}	
+			$i = 0;
+			$ResultsStop = array();
+			foreach($response->d->results as $value)
+			{
+		
+				$newResults[$i] = array($i+1,$value->Url,$value->Description);
+				$ResultsStop[$i] = array($i+1,$value->Url,$value->Description);
+				$i++;
+			}	
 			for($i=0;$i<20;$i++)
 			{
-			echo "(".$newResults[$i][0].")    ".'<a href='.$newResults[$i][1].'> '.$newResults[$i][1]. '</a><br><p>';
-			echo($newResults[$i][2] .' </p>');
+			echo "<div class='panel panel-default'>"."<a href=".$newResults[$i][1]." target='_blank'><div class='panel-heading'>".$newResults[$i][1]."</div><div class='panel-body'>";
+			echo($newResults[$i][2] .'</div></a></div>');
 			}
- 
-			echo "</pre>";
+
+			echo "";
 			
 			error_reporting(E_ERROR | E_PARSE);
 			// Removing the stop words from the search results:
@@ -95,13 +81,18 @@
 			$_SESSION['stopwrd'] = $ResultsStop;
 		}
 		?>
-		<br><br><hr><br>
-		<form method="post" action="newbingsrchp.php">
-		<h2> From the above results, Enter your 5 most relevant search result numbers separated by comma(,): </h2>
-		<input type='text' id='RankText' name='RankText' />
-		<input type="submit" value="Re-Rank!!" name="submit2" id="searchButton" />
-		<br><br><hr>
-		</form>
-
+		</div></div>
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="bottomSearch">
+						<form method="post" action="newbingsrchp.php" autocomplete="off">
+							<h3 class="text-center"> From the above results, Enter your 5 most relevant search result numbers separated by comma(,):</h3>
+							<input type='text' class="form-control" id='RankText' name='RankText' required />
+							<input class="btn btn-info text-center" type="submit" value="Re-Rank" name="submit2" id="searchButton" />
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
 	</body>
 </html>

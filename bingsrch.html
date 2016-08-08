@@ -1,24 +1,24 @@
+<!DOCTYPE html>
 <html>
-<head>
-   <link href="styles.css" rel="stylesheet" type="text/css" />
-	<title>Bing Search</title>
-			<style>
-				body {
-					background-image: url("search.jpg");
-					background-repeat: no-repeat;
-					background-position: right top; 
-					}
-				h2 {
-					color:blue;
-					}
-			</style>
-	</title>
-</head>
-<body>
-	<form method="post" action="bingsrchp.php">
-	<h2> Type in a your query: </h2>
-	<input type='text' id='searchText' name='searchText' />
-    <input type="submit" value="Search!!" name="submit" id="searchButton" />
-	</form>
-</body>
+	<head>
+		<title>Bing Search</title>
+		<link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css'>
+		<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+		<link href="style.css" rel="stylesheet" type="text/css" />
+	</head>
+	<body>
+		<div class="container" role="form">
+			<div class="row">
+				<div class="col-xs-12 searchMain">
+					<form method="post" action="bingsrchp.php" autocomplete="off">
+						<h2 class="text-center"> Search : </h2>
+						<div class="col-centered">
+							<input type='text' class="form-control" id='searchText' name='searchText' required />
+						    	<input class="btn btn-info" type="submit" value="Go!!" name="submit" id="searchButton" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
 </html>

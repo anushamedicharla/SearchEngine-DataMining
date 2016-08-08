@@ -1,0 +1,93 @@
+
+body {
+		background: url("pattern.jpg") no-repeat center center fixed;
+		background-size: cover; 
+	}
+
+h2,h3 {
+		color: #C0C0C0;
+		margin-left: 5px;
+		margin-right: 5px;
+	}
+a {
+		color: black;
+		font-size: 15px;
+		text-decoration: none !important;
+	}
+a:hover,a:active,a:visited{
+		color: black;
+	}
+
+.searchMain{
+	display: block;
+	align-items: center;
+    width: 100%;
+    margin: auto;
+	margin-top: 150px;
+}
+.form-control{
+	width: 20%;
+}
+.col-centered{
+    margin: auto;
+    float: none;
+}
+.btn:focus,
+.btn:active {
+  outline: none !important;
+}
+
+input[type="text"]{
+	border: 1px solid #C0C0C0;
+	transition: .5s all ease;
+	background-color: rgba(200,200,200,0.6);
+	color: white;
+	display: block;
+  	margin: auto;
+}
+
+input[type="text"]:focus{
+	width: 40%;
+	transition: .5s all ease;
+	border: 1px solid #121f1f;
+}
+
+input[type="submit"]{
+	border-radius: 10px;
+	background-color: #121f1f;
+	display: block;
+  	margin: auto;
+  	margin-top: 5px;
+  	margin-bottom: 5px;
+  	color: white;
+  	border: none;
+  	width: 13%;
+}
+input[type="submit"]:hover{
+	background-color: #121f1f;
+	color: white;
+}
+
+/*Second page specific*/
+.bottomSearch{
+	border: 3px solid #C0C0C0;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+.panel{
+	background-color: rgba(200,200,200,0.6);
+	display: block;
+	align-items: center;
+    width: 90%;
+    margin: auto;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.panel-body{
+	border-top:  1px black !important;
+}
+.homeSearch{
+	height: 40px;
+	width: 40px;
+	padding-top: 5px;
+}

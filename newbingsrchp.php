@@ -2,29 +2,15 @@
 <html>
 	<head>
 		<title>Bing Search</title>
-			<style>
-				body {
-					background-image: url("search.jpg");
-					background-repeat: no-repeat;
-					background-position: right top; 
-					}
-				h2 {
-					color:blue;
-					}
-				a {
-					font-style: bold;
-					font-size: 20px;
-					}
-				p {
-					white-space:pre-wrap; 
-					width:60ex;
-					font-size: 15px;
-					font-family: serif;
-					}
-			</style>
-		</title>
+		<link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>
+		<link href="style.css" rel="stylesheet" type="text/css" />
 	</head>
 	<body>
+		<div class='container'>
+			<a href="bingsrch.html"><img class="homeSearch" src="homeSearch.gif"></a>
+			<h2 id='secHeading' class='text-center'> Reranked Search Results </h2>
+				<div class='row'>
+					<div class='col-xs-12'>
 		<?php
 			session_start();		 
 			if (isset($_POST['submit2'])) 
@@ -93,10 +79,15 @@
 					for($g=0;$g<20;$g++)
 					{	
 						$index1 = $cosSimArr[$g][1];
-						echo "(".$arr1[$index1][0].")     ".'<a href='.$arr1[$index1][1].'> '.$arr1[$index1][1]. '</a><br><p>';
-						echo($arr1[$index1][2] .'</li> </p>');
+						echo "<div class='panel panel-default'>"."<a href=".$arr1[$index1][1]."target='_blank'><div class='panel-heading'>".$arr1[$index1][1]. "</div><div class='panel-body'>";
+						echo($arr1[$index1][2] .'</div></a></div>');
 					}
 				}
 				}
 			}
 		?>
+		</div>
+		</div>
+		</div>
+	</body>
+</html>
