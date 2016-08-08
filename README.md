@@ -1,6 +1,4 @@
 # SearchEngine-DataMining
-As a part of the data mining course, developed a working custom search engine using Bing API, in PHP and HTML. The results are re-ranked based on the user's feedback and displayed.
-
 
 Developed a working custom search engine using Bing API, in PHP, HTML, CSS and Bootstrap. 
 First the input query is taken and the 20 search results are shown. 
